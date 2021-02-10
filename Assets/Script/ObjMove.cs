@@ -5,8 +5,9 @@ using UnityEngine;
 public class ObjMove : MonoBehaviour {
 
     GameObject ClickedPiece;
-    GameObject HaveObject = null;
+    public GameObject HaveObject = null;
     GameObject ChildObject;
+    GameObject CellMove;
 
     float x = 0;
 
@@ -50,7 +51,7 @@ public class ObjMove : MonoBehaviour {
             TurnLeft();
         }
 
-        // 右クリックを押したらRayを飛ばして当たったオブジェクトを ClickedPiece に格納
+        // 左クリックを押したらRayを飛ばして当たったオブジェクトを ClickedPiece に格納
         if ( Input.GetMouseButtonDown( 0 ) ) {
             ClickedPiece = null;
 
@@ -68,9 +69,7 @@ public class ObjMove : MonoBehaviour {
                 // Kingのコマを選択
                 if ( (ClickedPiece.tag == "King_White" || ClickedPiece.tag == "King_Red" ) && HaveObject == null ) {
                     KeepKing();
-                    transform.GetChild(1).gameObject.GetComponent<Collider>().enabled = true;
-                    Debug.Log( "col" );
-
+                    CellKeep();
                 }
 
                 // Mirrorのコマを選択
@@ -152,5 +151,12 @@ public class ObjMove : MonoBehaviour {
         HaveObject.transform.rotation = Quaternion.Euler( 0, x, 0 );
         ChildObject.SetActive( false );
         HaveObject = null;
+    }
+
+    void CellKeep() {
+        CellMove = HaveObject.transform.GetChild( 1 ).gameObject;
+        Debug.Log( CellMove.name + "が検知されました" );
+        CellMove.SetActive( true );
+
     }
 }
