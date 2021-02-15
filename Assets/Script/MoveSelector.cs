@@ -5,12 +5,13 @@ using UnityEngine;
 public class MoveSelector : MonoBehaviour {
 
     void Start() {
-        Debug.Log( "CellMoveがオンになりました" );
+        Debug.Log( "MoveSelector has enabled" );
     }
-
-    void OnCollisionEnter( Collision collision) {
+    
+    void OnTrrigerStay( Collider other ) {
         // 接触しているオブジェクトがマスだったらそのマスをtrueにする
-        if ( collision.gameObject.tag == "Space" );
+        if ( other.gameObject.tag == "Space" ) {
         Debug.Log( "マスを発見しました");
-    }   
+        }
+    }
 }

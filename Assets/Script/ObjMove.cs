@@ -68,23 +68,23 @@ public class ObjMove : MonoBehaviour {
 
                 // Kingのコマを選択
                 if ( (ClickedPiece.tag == "King_White" || ClickedPiece.tag == "King_Red" ) && HaveObject == null ) {
-                    KeepKing();
+                    KeepPiece();
                     CellKeep();
                 }
 
                 // Mirrorのコマを選択
                 else if ( ( ClickedPiece.tag == "Mirror_White" || ClickedPiece.tag == "Mirror_Red" ) && HaveObject == null ) {
-                    KeepMirror();
+                    KeepPiece();
                 }
 
                 // DoubleMirrorのコマを選択
                 if ( ( ClickedPiece.tag == "DoubleMirror_White"|| ClickedPiece.tag == "DoubleMirror_Red" ) && HaveObject == null ) {
-                    KeepDoubleMirror();
+                    KeepPiece();
                 }
 
                 // Lazerのコマを選択
                 if ( ( ClickedPiece.tag == "Lazer_White" || ClickedPiece.tag == "Lazer_Red" ) && HaveObject == null ) {
-                    KeepKing();
+                    Debug.Log( "lazerコマを選択しました" );
                 }
 
 /* コマの移動
@@ -119,23 +119,10 @@ public class ObjMove : MonoBehaviour {
         ChildObject.SetActive( false );
         ChildObject = null;
     }
-    // KingとLazerのコマの保持
 
-    void KeepKing() {
+    void KeepPiece() {
         HaveObject = ClickedPiece;
         ChildObject = HaveObject.transform.GetChild( 0 ).gameObject;
-        ChildObject.SetActive( true );
-    }
-    // Mirrorの保持
-    void KeepMirror() {
-        HaveObject = ClickedPiece;
-        ChildObject = HaveObject.transform.GetChild( 2 ).gameObject;
-        ChildObject.SetActive( true );
-    }
-    // DoubleMirrorの保持
-    void KeepDoubleMirror() {
-        HaveObject = ClickedPiece;
-        ChildObject = HaveObject.transform.GetChild( 3 ).gameObject;
         ChildObject.SetActive( true );
     }
 
