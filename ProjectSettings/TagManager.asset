@@ -3,7 +3,22 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Space
+  - Space_Red
+  - Space_White
+  - BoardGamePiece
+  - Mirror_White
+  - Mirror_Red
+  - DoubleMirror_Red
+  - BoardGameLazer
+  - BoardGameKing
+  - DoubleMirror_White
+  - BoardGameKing.f
+  - King_White
+  - Lazer_Red
+  - King_Red
+  - SelectedTile
   layers:
   - Default
   - TransparentFX
